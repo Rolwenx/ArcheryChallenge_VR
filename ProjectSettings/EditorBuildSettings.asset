@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/1 Start Scene.unity
+    guid: 1ac18372765e56b4482302420329c81a
+  - enabled: 1
+    path: Assets/Scenes/SelectDifficulty.unity
+    guid: f20d14682ea64804ca96e5e4c60ec9e0
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 758d0fc06d6f8314c9f0f9e7de6e29e0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 57fc6bdd7e62cd34daa549b13e515b3d, type: 2}
