@@ -90,9 +90,10 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Target" || collision.gameObject.tag == "Terrain")
         {
-            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
+
     }
 }
