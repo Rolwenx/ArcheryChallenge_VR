@@ -53,6 +53,7 @@ public class SpawnArrow : MonoBehaviour
 
         // Instantiate arrow at the notch position
         _currentArrow = Instantiate(arrow, notch.transform.position, notch.transform.rotation);
+        _currentArrow.tag = "Arrow";
         _currentArrow.transform.SetParent(notch.transform); // Attach arrow to the notch
     }
 }
