@@ -4,24 +4,31 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using System;
 
+using System.Collections;
+using System.Collections.Generic;
+using Unity.XR.CoreUtils;
+using UnityEngine;
+using System;
+
 public class Targets : MonoBehaviour
 {
     public GameObject target;
-    //public String level; // Integer representing the difficulty level <------ TO REACTIVATE
     public String level = "easy";
     public float spawnInterval = 3f; // Seconds between spawns
     public int maxTargets = 10; // Max targets allowed in scene
+    public Transform player; // Reference to the player's transform
+    public float spawnDistance = 10f; // Distance in front of the player where the target will spawn
+    public float spawnRadius = 5f; // Radius around the player's forward direction for random spawning
 
     private float spawnTimer = 0f;
-    private float spawnRange = 5f; // Range for spawning
 
     void Start()
     {
-        // Retrieve the level from PlayerPrefs (or set a default value if not set)
-        //level = PlayerPrefs.GetString("level"); // Default to level 1 ("easy") <----- TO REACTIVATE
-
-        // You can also set the level using PlayerPrefs if needed
-        // PlayerPrefs.SetInt("difficultyLevel", 1); // Example: setting the difficulty to level 1
+        // Ensure the player reference is set (you could also use Camera.main.transform if it's a first-person game)
+        if (player == null)
+        {
+            Debug.LogError("Player reference is missing!");
+        }
     }
 
     void Update()
@@ -38,11 +45,20 @@ public class Targets : MonoBehaviour
 
     void SpawnTarget()
     {
-        // Ensure targets are spawned within a defined range for x, but fixed on top of the y-axis
-        Vector3 spawnPosition = new Vector3(
-            UnityEngine.Random.Range(-spawnRange, spawnRange),  // Random x position
-            UnityEngine.Random.Range(1f, 5f),       // Random y position between 1 and 5
-            0);                                     // z axis is 0 for 2D
+        if (player == null) return; // Prevent null reference errors
+
+        // Calculate the spawn position in front of the player
+        Vector3 spawnPosition = player.position + player.forward * spawnDistance;
+
+        // Add a random offset within a radius around the forward direction (ensure not underground)
+        Vector3 randomOffset = new Vector3(
+            UnityEngine.Random.Range(-spawnRadius * 2, spawnRadius * 2), // Increased left-right movement range
+            UnityEngine.Random.Range(1f, 5f), // Y position is between 1 and 5 to avoid being underground
+            UnityEngine.Random.Range(-spawnRadius, spawnRadius)  // Random offset forward-backward for variety
+        );
+
+        // Apply the random offset to the spawn position
+        spawnPosition += randomOffset;
 
         GameObject newTarget = Instantiate(target, spawnPosition, Quaternion.identity);
 
@@ -53,3 +69,7 @@ public class Targets : MonoBehaviour
         newTarget.GetComponent<Targets_movements>().level = level;
     }
 }
+
+
+
+

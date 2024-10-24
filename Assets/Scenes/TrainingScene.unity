@@ -1941,6 +1941,7 @@ GameObject:
   - component: {fileID: 506060534}
   - component: {fileID: 506060533}
   - component: {fileID: 506060532}
+  - component: {fileID: 506060535}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -2024,6 +2025,25 @@ Transform:
   - {fileID: 583277700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506060535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506060531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91300247fa53bb4586d40c10503aabd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 5513972167888428255, guid: 0aae9fa1262a5ca4292944ee29a652a0, type: 3}
+  level: easy
+  spawnInterval: 3
+  maxTargets: 10
+  player: {fileID: 957186480}
+  spawnDistance: 10
+  spawnRadius: 5
 --- !u!1001 &512388835
 PrefabInstance:
   m_ObjectHideFlags: 0
