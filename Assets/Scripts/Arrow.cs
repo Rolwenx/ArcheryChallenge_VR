@@ -87,4 +87,12 @@ public class Arrow : MonoBehaviour
         _rigidBody.useGravity = usePhysics;
         _rigidBody.isKinematic = !usePhysics;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Target")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
