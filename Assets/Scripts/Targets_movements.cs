@@ -24,6 +24,23 @@ public class Targets_movements : MonoBehaviour
         level = PlayerPrefs.GetString("level"); // Par défaut "facile" (niveau 1)  <----- TO REACTIVATE
     }
 
+    public float ChooseSpeed()
+    {
+        if(PlayerPrefs.GetString("level") == "easy")
+        {
+            speed = 0.7f;
+        }
+        if (PlayerPrefs.GetString("level") == "medium")
+        {
+            speed = 1f;
+        }
+        if (PlayerPrefs.GetString("level") == "hard")
+        {
+            speed = 1.8f;
+        }
+        return speed;
+    }
+
     void Update()
     {
         // Mise à jour du mouvement en fonction du niveau de difficulté
@@ -32,6 +49,7 @@ public class Targets_movements : MonoBehaviour
 
     void MoveTarget(String level)
     {
+        speed = ChooseSpeed();
         // Compteur de temps basé sur la vitesse
         timeCounter += Time.deltaTime * speed;
 

@@ -29,7 +29,7 @@ public class Targets : MonoBehaviour
         {
             Debug.LogError("Player reference is missing!");
         }
-        level = PlayerPrefs.GetString("level");
+        level = PlayerPrefs.GetString("level", "easy");
     }
 
     void Update()
