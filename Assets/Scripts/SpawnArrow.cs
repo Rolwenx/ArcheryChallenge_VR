@@ -11,10 +11,14 @@ public class SpawnArrow : MonoBehaviour
     private bool _arrowHasBeenNotched = false;
     private GameObject _currentArrow;
 
+    public AudioClip spawnSound; // Spawn sound clip
+    private AudioSource audioSource; // Reference to the AudioSource
+
     void Start()
     {
         _bow = GetComponentInParent<XRGrabInteractable>();
         PullString.PullActionReleased += NotchIsEmpty;
+        audioSource = gameObject.AddComponent<AudioSource>(); // Add AudioSource
     }
 
     private void OnDestroy()
@@ -55,5 +59,7 @@ public class SpawnArrow : MonoBehaviour
         _currentArrow = Instantiate(arrow, notch.transform.position, notch.transform.rotation);
         _currentArrow.tag = "Arrow";
         _currentArrow.transform.SetParent(notch.transform); // Attach arrow to the notch
+
+        audioSource.PlayOneShot(spawnSound); // Play spawn sound
     }
 }

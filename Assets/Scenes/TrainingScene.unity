@@ -4904,7 +4904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 344871545, guid: f36810f37bf4b0540a371dff3ea3a188, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5238
+      value: -0.705
       objectReference: {fileID: 0}
     - target: {fileID: 649719642, guid: f36810f37bf4b0540a371dff3ea3a188, type: 3}
       propertyPath: m_Layer
@@ -5191,6 +5191,7 @@ MonoBehaviour:
   notch: {fileID: 1231963375}
   elasticTime: 0.2
   elasticOvershoot: 0.1
+  pullingStringSound: {fileID: 8300000, guid: 39d90cfcdc50cc847b46219f90c0aede, type: 3}
 --- !u!1001 &1239963988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5262,6 +5263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 1769337597633466025, guid: 54ba44d4ecd83324991be29cf49b127d, type: 3}
   notch: {fileID: 1231963375}
+  spawnSound: {fileID: 8300000, guid: 8df032917ff95754cb3b51c3c79fc9f4, type: 3}
 --- !u!4 &1256261202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482546, guid: 8a13b3dbbf597744192ac4a84ebb93c6, type: 3}

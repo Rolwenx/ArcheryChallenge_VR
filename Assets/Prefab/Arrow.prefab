@@ -77,6 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   tip: {fileID: 1769337598482281036}
+  collisionSound: {fileID: 8300000, guid: 121cbb7bff765654a9455710f2dd8e1c, type: 3}
+  releaseSound: {fileID: 8300000, guid: 334f40308c3990e4d9e1ed6cbdae6348, type: 3}
 --- !u!65 &-7308671344540280590
 BoxCollider:
   m_ObjectHideFlags: 0

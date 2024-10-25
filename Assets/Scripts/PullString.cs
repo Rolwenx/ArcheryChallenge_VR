@@ -19,10 +19,16 @@ public class PullString : XRBaseInteractable
     public float elasticTime = 0.2f; // How fast the string moves towards the final pulled position
     public float elasticOvershoot = 0.1f; // Additional overshoot to give a bouncy effect
 
+    public AudioClip pullingStringSound; // Pulling string sound clip
+    private AudioSource audioSource; // Reference to the AudioSource
+
+
+
     protected override void Awake()
     {
         base.Awake();
         _lineRenderer = GetComponent<LineRenderer>();
+        audioSource = gameObject.AddComponent<AudioSource>(); // Add AudioSource
     }
 
     public void SetPullInteractor(SelectEnterEventArgs args)
@@ -59,6 +65,12 @@ public class PullString : XRBaseInteractable
             {
                 Vector3 pullPosition = pullingInteractor.transform.position;
                 float targetPullAmount = CalculatePull(pullPosition);
+
+                // Play pulling sound while pulling
+                if (pullAmount < 1f && !audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(pullingStringSound); // Play pulling sound
+                }
 
                 // Smooth the pull amount for an elastic effect
                 pullAmount = Mathf.SmoothDamp(pullAmount, targetPullAmount, ref smoothPullVelocity, elasticTime);

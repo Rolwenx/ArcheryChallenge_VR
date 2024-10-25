@@ -11,10 +11,16 @@ public class Arrow : MonoBehaviour
     private bool _inAir = false;
     private Vector3 _lastPosition = Vector3.zero;
 
+    public AudioClip collisionSound; // Collision sound clip
+    public AudioClip releaseSound; // Release sound clip
+    private AudioSource audioSource; // Reference to the AudioSource
+
+
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
         PullString.PullActionReleased += Release;
+        audioSource = gameObject.AddComponent<AudioSource>();
 
         Stop();
     }
@@ -33,6 +39,7 @@ public class Arrow : MonoBehaviour
 
         Vector3 force = transform.forward * value * speed;
         _rigidBody.AddForce(force, ForceMode.Impulse);
+        audioSource.PlayOneShot(releaseSound); // Play release sound
 
         StartCoroutine(RotateWithVelocity());
 
@@ -72,6 +79,7 @@ public class Arrow : MonoBehaviour
                     body.AddForce(_rigidBody.velocity, ForceMode.Impulse);
                 }
                 Stop();
+                audioSource.PlayOneShot(collisionSound); // Play collision sound
             }
         }
     }
