@@ -32,16 +32,14 @@ public class TrainingManager : MonoBehaviour
         {
             for (int i = 0; i < 3; i++)
             {
-                Debug.Log($"Level: {currentLevel}, Attempt: {i + 1}");
 
                 // Spawn targets for the current level
                 SpawnTargets(targetsPerLevel[currentLevel]);
-
-                // Wait for the designated time
                 yield return new WaitForSeconds(timers[currentLevel]);
 
                 // Increment attempts
                 attempts++;
+
 
                 // Reload scene to reset after timer
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -44,7 +44,7 @@ public class SpawnArrow : MonoBehaviour
     }
 
     // Called when the string is released, resets the state of the notch
-    private void NotchIsEmpty(float pullAmount)
+    public void NotchIsEmpty(float pullAmount)
     {
         _arrowHasBeenNotched = false;
         _currentArrow = null; // Clear the reference to the current arrow

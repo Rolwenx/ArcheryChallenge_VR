@@ -37,9 +37,9 @@ public class Arrow : MonoBehaviour
         gameObject.transform.parent = null;
         SetPhysics(true);
 
-        Vector3 force = transform.forward * value * speed;
+       Vector3 force = transform.forward * value * speed;
         _rigidBody.AddForce(force, ForceMode.Impulse);
-        audioSource.PlayOneShot(releaseSound); // Play release sound
+        audioSource.PlayOneShot(releaseSound);
 
         StartCoroutine(RotateWithVelocity());
 
@@ -111,7 +111,7 @@ public class Arrow : MonoBehaviour
         // Assuming the target has colliders for different zones
         if (collision.gameObject.CompareTag("Score4"))
         {
-            Debug.Log("zone 4");
+    
             return 4; 
         }
         else if (collision.gameObject.CompareTag("Score3"))
