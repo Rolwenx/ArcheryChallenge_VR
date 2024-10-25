@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8517776052636336486}
   - component: {fileID: 1536650495728852654}
+  - component: {fileID: 1061390404553960484}
   m_Layer: 0
   m_Name: Score3
-  m_TagString: Untagged
+  m_TagString: Score3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,12 +48,25 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.0040536886
   m_Center: {x: -0.000010412931, y: -0.0000061742953, z: 5.1895657e-20}
+--- !u!114 &1061390404553960484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542312636109636624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde12bcbcf5bfc14abf7a35f6bec551a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 3
 --- !u!1 &5513972167888428255
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +201,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -203,9 +217,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6101095713086749152}
   - component: {fileID: 958684754024303091}
+  - component: {fileID: 3636641917093207412}
   m_Layer: 0
   m_Name: Score2
-  m_TagString: Untagged
+  m_TagString: Score2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,12 +255,25 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.006509433
   m_Center: {x: -0.000010412931, y: -0.0000061735504, z: 5.2001536e-20}
+--- !u!114 &3636641917093207412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854178067968132639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde12bcbcf5bfc14abf7a35f6bec551a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 2
 --- !u!1 &7730792442492396798
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,9 +284,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3263445061415206894}
   - component: {fileID: 881945190879512318}
+  - component: {fileID: 5994853452343027287}
   m_Layer: 0
   m_Name: Score4
-  m_TagString: Untagged
+  m_TagString: Score4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,12 +322,25 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.0016927256
   m_Center: {x: -0.000010412931, y: 0.0000015685333, z: -9.426964e-21}
+--- !u!114 &5994853452343027287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730792442492396798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde12bcbcf5bfc14abf7a35f6bec551a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 4
 --- !u!1 &7888179222335722141
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,9 +351,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7590054500260671982}
   - component: {fileID: 4357739230711722729}
+  - component: {fileID: 5948134817973770286}
   m_Layer: 0
   m_Name: Score1
-  m_TagString: Untagged
+  m_TagString: Score1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,9 +389,22 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.009908916
   m_Center: {x: -0.000010412931, y: 0.000018097458, z: 7.1317196e-19}
+--- !u!114 &5948134817973770286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7888179222335722141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde12bcbcf5bfc14abf7a35f6bec551a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1

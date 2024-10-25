@@ -8,6 +8,10 @@ TagManager:
   - Arrow
   - Terrain
   - Bow
+  - Score4
+  - Score3
+  - Score2
+  - Score1
   layers:
   - Default
   - TransparentFX
