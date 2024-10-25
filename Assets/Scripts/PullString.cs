@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.OpenXR.Input;
 
 public class PullString : XRBaseInteractable
 {
@@ -12,7 +13,7 @@ public class PullString : XRBaseInteractable
     public float pullAmount { get; private set; } = 0.0f;
 
     private LineRenderer _lineRenderer;
-    private IXRSelectInteractor pullingInteractor = null;
+    private IXRSelectInteractor _pullingInteractor = null;
 
     // Variables to control the elastic behavior
     private float smoothPullVelocity = 0f; // Used by SmoothDamp to track velocity of pullAmount change
@@ -33,13 +34,14 @@ public class PullString : XRBaseInteractable
 
     public void SetPullInteractor(SelectEnterEventArgs args)
     {
-        pullingInteractor = args.interactorObject;
+        _pullingInteractor = args.interactorObject;
+
     }
 
     public void Release()
     {
         PullActionReleased?.Invoke(pullAmount);
-        pullingInteractor = null;
+        _pullingInteractor = null;
         pullAmount = 0f; // Reset the pull amount when released
 
         // Reset notch position for the next shot, keeping it aligned
@@ -63,7 +65,7 @@ public class PullString : XRBaseInteractable
         {
             if (isSelected)
             {
-                Vector3 pullPosition = pullingInteractor.transform.position;
+                Vector3 pullPosition = _pullingInteractor.transform.position;
                 float targetPullAmount = CalculatePull(pullPosition);
 
                 // Play pulling sound while pulling
@@ -76,6 +78,7 @@ public class PullString : XRBaseInteractable
                 pullAmount = Mathf.SmoothDamp(pullAmount, targetPullAmount, ref smoothPullVelocity, elasticTime);
 
                 UpdateString();
+                Haptic();
             }
         }
     }
@@ -104,4 +107,12 @@ public class PullString : XRBaseInteractable
         _lineRenderer.SetPosition(1, linePosition);
     }
 
+    private void Haptic()
+    {
+        if (_pullingInteractor != null)
+        {
+            ActionBasedController currentController = _pullingInteractor.transform.gameObject.GetComponent<ActionBasedController>();
+            currentController.SendHapticImpulse(pullAmount, .1f);
+        }
+    }
 }
