@@ -1,39 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // Add this to use TextMeshPro
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager Instance => _instance;
-
-    private int score;
+    public static GameManager Instance; // Singleton instance
+    public int score; // Player score
+    public TextMeshProUGUI scoreText; // Reference to the TextMeshProUGUI component
 
     private void Awake()
     {
-        // Ensure only one instance of GameManager exists
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject); // Keep GameManager between scenes
-            ResetScore(); // Reset score at the start
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Keep this object between scenes
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // Destroy duplicate instances
         }
     }
 
-    public void ResetScore()
+    private void Start()
     {
-        score = 0;
+        UpdateScoreDisplay(); // Initialize score display
     }
 
     public void AddScore(int points)
     {
-        score += points;
+        score += points; // Add points to score
+        UpdateScoreDisplay(); // Update the score display
     }
 
-    public int GetScore()
+    private void UpdateScoreDisplay()
     {
-        return score;
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score; // Update the text component
+        }
     }
+
+    public void ResetScore()
+{
+    score = 0; // Reset the score
+    UpdateScoreDisplay(); // Update the display to show the reset score
+}
+
 }
