@@ -100,11 +100,17 @@ public class Arrow : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Target"))
         {
-            // Call the scoring method when hitting the target
             GameManager.Instance.AddScore(GetScoreBasedOnZone(collision));
+
             Destroy(gameObject);
+
+            if (PlayerPrefs.GetString("level","training") != "training")
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
+
 
     private int GetScoreBasedOnZone(Collision collision)
     {

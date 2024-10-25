@@ -14,7 +14,8 @@ public class PullString : XRBaseInteractable
     private IXRSelectInteractor _pullingInteractor = null;
     private SpawnArrow _arrowSpawner;
 
-    private AudioSource _audioSource;
+    public AudioClip pullingStringSound; // Pulling string sound clip
+    private AudioSource audioSource; // Reference to the AudioSource
 
 
     protected override void Awake()
@@ -23,7 +24,6 @@ public class PullString : XRBaseInteractable
         _lineRenderer = GetComponent<LineRenderer>();
 
         _arrowSpawner = GetComponentInParent<SpawnArrow>();
-        _audioSource = GetComponent<AudioSource>();
     }
 
     public void SetPullInteractor(SelectEnterEventArgs args)
@@ -48,7 +48,6 @@ public class PullString : XRBaseInteractable
             Debug.LogError("ArrowSpawner reference is missing!");
         }
 
-        PlayRSound();
     }
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -60,8 +59,14 @@ public class PullString : XRBaseInteractable
             if (isSelected)
             {
                 Vector3 pullPosition = _pullingInteractor.transform.position;
-                pullAmount = CalculatePull(pullPosition);
-                Debug.Log("Pulling string with pullAmount: " + pullAmount);
+                float pullAmount = CalculatePull(pullPosition);
+
+                // Play pulling sound while pulling
+                if (pullAmount < 1f && !audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(pullingStringSound); // Play pulling sound
+                }
+
                 UpdateString();
 
                 Haptic();
@@ -96,9 +101,6 @@ public class PullString : XRBaseInteractable
             currentController.SendHapticImpulse(pullAmount, .1f);
         }
     }
-    private void PlayRSound()
-    {
-        _audioSource.Play();
-    }
+
 
 }
