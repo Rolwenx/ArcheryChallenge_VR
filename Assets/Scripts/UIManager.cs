@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class UIManager : MonoBehaviour
 {
     private AudioManager audioManager;
@@ -12,22 +13,34 @@ public class UIManager : MonoBehaviour
 
     public void OnStartButtonPressed()
     {
-        // Logic to start the game or go to the training mode
-        audioManager.PlayTrainingMusic(); // Change this based on the selected mode
+ 
+        audioManager.PlayTrainingMusic(); 
     }
 
     public void OnTrainingModeSelected()
     {
-        audioManager.PlayTrainingMusic();
+        audioManager.PlayTrainingMusic(); 
+
     }
 
     public void OnGameModeSelected()
     {
-        audioManager.PlayGameMusic();
+        audioManager.PlayGameMusic(); 
     }
 
     public void OnBackToMenu()
     {
-        audioManager.PlayMenuMusic();
+        audioManager.PlayMenuMusic(); 
+    }
+
+    public void OnOptionsSelected()
+    {
+        audioManager.PlayMenuMusic(); 
+    }
+
+    public void OnDifficultySelected()
+    {
+        audioManager.PlayMenuMusic(); // Play menu music when choosing difficulty
+        // Load difficulty selection scene here
     }
 }

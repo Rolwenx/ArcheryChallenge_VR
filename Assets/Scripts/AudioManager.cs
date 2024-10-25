@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource audioSource; 
-    public AudioClip menuMusic; 
-    public AudioClip trainingMusic; 
+    public AudioSource audioSource;
+    public AudioClip menuMusic;
+    public AudioClip trainingMusic;
     public AudioClip gameMusic;
+
+    private void Awake()
+    {
+        // Ensure this GameObject persists across scenes
+        DontDestroyOnLoad(gameObject);
+
+        // Check for duplicate instances
+        if (FindObjectsOfType<AudioManager>().Length > 1)
+        {
+            Destroy(gameObject); // Destroy duplicate instances
+        }
+    }
 
     private void Start()
     {
@@ -31,7 +43,8 @@ public class AudioManager : MonoBehaviour
 
     private void PlayMusic(AudioClip clip)
     {
-        if (audioSource.clip == clip) return; // If the same clip is already playing, do nothing
+        // If the current clip is the same as the one we want to play, do nothing
+        if (audioSource.clip == clip) return;
 
         audioSource.Stop(); // Stop current music
         audioSource.clip = clip; // Assign new clip
