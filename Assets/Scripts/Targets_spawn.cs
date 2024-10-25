@@ -14,7 +14,7 @@ public class Targets : MonoBehaviour
     public float spawnRadius = 5f; // Radius around the player's forward direction for random spawning
 
     private float spawnTimer = 0f;
-    private bool isTrainingMode = false; // Flag to indicate training mode
+
 
     void Start()
     {
@@ -25,20 +25,10 @@ public class Targets : MonoBehaviour
         }
 
         level = PlayerPrefs.GetString("level", "easy");
-
-        // Check if we are in training mode
-        isTrainingMode = level.Equals("training", System.StringComparison.OrdinalIgnoreCase);
-
-        // If in training mode, spawn one target at a specific position
-        if (isTrainingMode)
-        {
-            SpawnSingleTarget(new Vector3(-258.4f, 1.27f, 53.28f)); // Specify the position where you want the target
-        }
     }
 
     void Update()
     {
-        if (isTrainingMode) return; // Skip spawning if in training mode
 
         spawnTimer += Time.deltaTime;
 
@@ -76,11 +66,5 @@ public class Targets : MonoBehaviour
         newTarget.GetComponent<Targets_movements>().level = level;
     }
 
-    void SpawnSingleTarget(Vector3 position)
-    {
-        // Spawn a single target at the specified position
-        GameObject newTarget = Instantiate(target, position, Quaternion.identity);
-        newTarget.tag = "Target"; // Set the tag for the target
-        newTarget.GetComponent<Targets_movements>().level = level; // Assign difficulty level
-    }
+ 
 }

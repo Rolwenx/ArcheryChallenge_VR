@@ -40,4 +40,11 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score: " + score; // Update the text component
         }
     }
+
+    public void ResetScore()
+    {
+        score = 0; // Reset the score
+        UpdateScoreDisplay(); // Update the display to show the reset score
+    }
+
 }
