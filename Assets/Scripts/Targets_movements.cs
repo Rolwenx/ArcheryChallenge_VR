@@ -38,6 +38,10 @@ public class Targets_movements : MonoBehaviour
         {
             speed = 1.8f;
         }
+        if (PlayerPrefs.GetString("level") == "training")
+        {
+            speed = 0f;
+        }
         return speed;
     }
 

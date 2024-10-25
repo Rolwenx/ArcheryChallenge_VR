@@ -32,6 +32,12 @@ public class Choose_Difficulty : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
+    public void Training()
+    {
+        PlayerPrefs.SetString("level", "training");
+        SceneManager.LoadScene(3);
+    }
+
     public void goToScene(int id)
     {
         SceneManager.LoadScene(id);

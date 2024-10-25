@@ -207,8 +207,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1212402847}
         m_TargetAssemblyTypeName: Choose_Difficulty, Assembly-CSharp
-        m_MethodName: goToScene
-        m_Mode: 3
+        m_MethodName: Training
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
