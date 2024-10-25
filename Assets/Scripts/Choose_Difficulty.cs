@@ -32,4 +32,10 @@ public class Choose_Difficulty : MonoBehaviour
         SceneManager.LoadScene("targets");
     }
 
+    public void goTraining()
+    {
+        SceneManager.LoadScene("TrainingScene");
+    }
+
+
 }

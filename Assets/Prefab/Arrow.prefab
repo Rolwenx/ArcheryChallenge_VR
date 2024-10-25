@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f80bb87f755b5644ba749f56922ce48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   tip: {fileID: 1769337598482281036}
   collisionSound: {fileID: 8300000, guid: 121cbb7bff765654a9455710f2dd8e1c, type: 3}
   releaseSound: {fileID: 8300000, guid: 334f40308c3990e4d9e1ed6cbdae6348, type: 3}
