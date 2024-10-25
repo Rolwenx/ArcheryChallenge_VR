@@ -111,6 +111,7 @@ public class Arrow : MonoBehaviour
         // Assuming the target has colliders for different zones
         if (collision.gameObject.CompareTag("Score4"))
         {
+            Debug.Log("zone 4");
             return 4; 
         }
         else if (collision.gameObject.CompareTag("Score3"))
