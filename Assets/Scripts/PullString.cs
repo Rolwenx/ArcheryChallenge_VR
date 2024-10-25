@@ -35,9 +35,19 @@ public class PullString : XRBaseInteractable
         PullActionReleased?.Invoke(pullAmount);
         pullingInteractor = null;
         pullAmount = 0f; // Reset the pull amount when released
-        notch.transform.localPosition = new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y, 0f);
+
+        // Reset notch position for the next shot, keeping it aligned
+        ResetNotchPosition();
+
         UpdateString();
     }
+
+    private void ResetNotchPosition()
+    {
+        // Assuming that the initial notch position is at the start
+        notch.transform.localPosition = start.localPosition; // Set notch to the start position
+    }
+
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {
@@ -75,10 +85,11 @@ public class PullString : XRBaseInteractable
         // Calculate the position of the line based on the pull amount
         Vector3 linePosition = Vector3.forward * Mathf.Lerp(start.transform.localPosition.z, end.transform.localPosition.z, pullAmount);
 
-        // Adjust notch position
-        notch.transform.localPosition = new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y, linePosition.z + .2f);
+        // Center the notch with the string
+        notch.transform.localPosition = new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y, linePosition.z);
 
         // Update the line renderer
         _lineRenderer.SetPosition(1, linePosition);
     }
+
 }
