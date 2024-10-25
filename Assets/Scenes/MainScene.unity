@@ -3259,7 +3259,8 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 41401930}
   timerText: {fileID: 1587459667}
-  maxTime: 10
+  maxTime: 5
+  gameOverSound: {fileID: 8300000, guid: 9aecae9ba8253ab4f815a47d2ba81660, type: 3}
 --- !u!1001 &349156478
 PrefabInstance:
   m_ObjectHideFlags: 0
