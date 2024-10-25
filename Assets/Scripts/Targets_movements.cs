@@ -6,14 +6,14 @@ using System;
 
 public class Targets_movements : MonoBehaviour
 {
-    //public String level; // Niveau de difficulté : 1 = facile, 2 = moyen, 3 = difficile <------ TO REACTIVATE
+    public String level; // Niveau de difficulté : 1 = facile, 2 = moyen, 3 = difficile <------ TO REACTIVATE
     public float speed = 2f; // Vitesse de base pour le mouvement
     public float distance = 5f; // Distance pour l'aller-retour
 
     private Vector3 startPosition;
     private float timeCounter = 0;
 
-    public String level = "easy"; // Niveau de difficulté par défaut
+    //public String level = "easy"; // Niveau de difficulté par défaut
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class Targets_movements : MonoBehaviour
         startPosition = transform.position;
 
         // Récupérer le niveau de difficulté depuis PlayerPrefs
-        //level = PlayerPrefs.GetString("level"); // Par défaut "facile" (niveau 1)  <----- TO REACTIVATE
+        level = PlayerPrefs.GetString("level"); // Par défaut "facile" (niveau 1)  <----- TO REACTIVATE
     }
 
     void Update()

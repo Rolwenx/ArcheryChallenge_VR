@@ -13,7 +13,7 @@ using System;
 public class Targets : MonoBehaviour
 {
     public GameObject target;
-    public String level = "easy";
+    private String level;
     public float spawnInterval = 3f; // Seconds between spawns
     public int maxTargets = 10; // Max targets allowed in scene
     public Transform player; // Reference to the player's transform
@@ -29,6 +29,7 @@ public class Targets : MonoBehaviour
         {
             Debug.LogError("Player reference is missing!");
         }
+        level = PlayerPrefs.GetString("level");
     }
 
     void Update()

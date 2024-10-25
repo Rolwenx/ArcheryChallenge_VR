@@ -17,19 +17,19 @@ public class Choose_Difficulty : MonoBehaviour
     {
         PlayerPrefs.SetString("level", "easy");
         
-        SceneManager.LoadScene("targets");
+        SceneManager.LoadScene(4);
     }
 
     public void Medium()
     {
         PlayerPrefs.SetString("level", "medium");
-        SceneManager.LoadScene("targets");
+        SceneManager.LoadScene(4);
     }
 
     public void Hard()
     {
         PlayerPrefs.SetString("level", "hard");
-        SceneManager.LoadScene("targets");
+        SceneManager.LoadScene(4);
     }
 
     public void goToScene(int id)
