@@ -5156,6 +5156,10 @@ PrefabInstance:
       propertyPath: m_InteractionLayers.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 1486081380, guid: f36810f37bf4b0540a371dff3ea3a188, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1934756542582598774, guid: f36810f37bf4b0540a371dff3ea3a188, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -5178,7 +5182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9008461865543561412, guid: f36810f37bf4b0540a371dff3ea3a188, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.396
+      value: 57.728
       objectReference: {fileID: 0}
     - target: {fileID: 9008461865543561412, guid: f36810f37bf4b0540a371dff3ea3a188, type: 3}
       propertyPath: m_LocalRotation.w

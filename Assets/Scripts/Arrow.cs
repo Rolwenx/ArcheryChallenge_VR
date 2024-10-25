@@ -98,10 +98,34 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Target" || collision.gameObject.tag == "Terrain")
+        if (collision.gameObject.CompareTag("Target"))
         {
+            // Call the scoring method when hitting the target
+            GameManager.Instance.AddScore(GetScoreBasedOnZone(collision));
             Destroy(gameObject);
         }
+    }
 
+    private int GetScoreBasedOnZone(Collision collision)
+    {
+        // Assuming the target has colliders for different zones
+        if (collision.gameObject.CompareTag("Score4"))
+        {
+            return 4; 
+        }
+        else if (collision.gameObject.CompareTag("Score3"))
+        {
+            return 3; 
+        }
+        else if (collision.gameObject.CompareTag("Score2"))
+        {
+            return 2; 
+        }
+        else if (collision.gameObject.CompareTag("Score1"))
+        {
+            return 1; 
+        }
+
+        return 0; // Default case
     }
 }

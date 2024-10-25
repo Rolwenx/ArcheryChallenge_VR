@@ -12,7 +12,7 @@ public class TrainingManager : MonoBehaviour
     private int currentLevel = 0; // Current level index
     private int attempts = 0; // Number of attempts made
 
-    private Vector3 initialSpawnPosition = new Vector3(-258.4f, 0.874f, 53.75f);
+    private Vector3 initialSpawnPosition = new Vector3(-258.4f, 0.794f, 53.75f);
     private float spacing = 2f;
 
     void Start()
